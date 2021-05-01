@@ -1,5 +1,7 @@
 <?php
 
+require_once('header.php');
+
 include("db.php");
 
 
@@ -12,65 +14,22 @@ $redak= mysqli_fetch_array($rezultat);
 #var_dump($rezultat);
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="stil.css">
-    <link rel="stylesheet" type="text/css" href="stil2.css">
-    <title>Automobili</title>
 
-    <script src="https://kit.fontawesome.com/c6fd8dbab2.js" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    <script>
-
-    var modal = document.getElementById('id01');
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    </script>
-</head>
 <body>
 
-<!--Modalni dialog za login/register-->
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php" method="post">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-    </div>
+<!--Modalni dialog za prijavu-->
+<?php
 
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+    require_once('prijava.php');
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-  </form>
-</div>
+?>
 
-<div class="topnav" id="myTopnav">
-    <a href="#home" class="active">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-    </a>
-    <a href="#" onclick="document.getElementById('id01').style.display='block'">Login</a>
-</div>
+<!--Top navigacija-->
+<?php
 
+require_once('navigacija.php');
+
+?>
 <div id="banner">
 <div class="container-fluid">
 <img src="Slike/logo.png" id="logo">
@@ -114,10 +73,18 @@ $redak= mysqli_fetch_array($rezultat);
   </div>
 </div>
 </div>
-    
 
+<script src="app.js"></script>
+<script>
 
-   
-    
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
 </body>
 </html>
