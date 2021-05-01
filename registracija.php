@@ -10,12 +10,19 @@ require_once('header.php');
   
   require_once('navigacija.php');
 
-  ?>
-
-  <!--Modalni dialog za login/register-->
-  <?php
+  //Modalni dialog za login/register
 
   require_once('prijava.php');
+  require_once('kontroleri/sesija.php');
+
+  if($session->is_signed_in()){
+    header("Location:index.php");
+  }
+
+  if(isset($_POST['submit'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+  }
 
   ?>
 

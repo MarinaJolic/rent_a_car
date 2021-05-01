@@ -1,5 +1,6 @@
 <?php
 
+require_once('kontroleri/db.php');
 require_once('kontroleri/sesija.php');
 
 ?>

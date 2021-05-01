@@ -2,8 +2,6 @@
 
 require_once('header.php');
 
-include("db.php");
-
 
 $upit ="SELECT * FROM korisnik";
 

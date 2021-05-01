@@ -32,5 +32,5 @@ class Session{
 
 }
 
-$sessin = new Session();
+$session = new Session();
 ?>
