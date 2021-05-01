@@ -43,7 +43,6 @@ $redak= mysqli_fetch_array($rezultat);
   <form class="modal-content animate" action="/action_page.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
@@ -77,15 +76,16 @@ $redak= mysqli_fetch_array($rezultat);
 <img src="Slike/logo.png" id="logo">
 </div>
 </div>
-<div id="text">
-    <div id="mini">
-        
-    Mini je gradski automobil koji su proizveli engleski proizvođači automobila<br> British Motor Corporation(BMC) i njgeovi nadljednici od 1959. do 2000. godine.<br>
-    Godine 1999, proglašen je za drugi najutjecaniji automobil 20. vijeka,<br> iza Ford modela T, a ispred ajkule i bube.
+<div id="text" style="background: grey !important;">
+    
+    <div class="cards">
+        <div class="card"><i class="fas fa-hard-hat"></i><span class="icon-text">Sigurnost</span></div>
+        <div class="card"><i class="fas fa-piggy-bank"></i><span class="icon-text">Štednja</span></div>
+        <div class="card"><i class="fas fa-parking"></i><span class="icon-text">Jednostavnost</span></div>
     </div>
     
 </div>
-<hr style="background-color: red;">
+<div style="background: lightgrey !important;">
 <div id="autori">
     <div class="container">
         <div class="row">
@@ -110,7 +110,7 @@ $redak= mysqli_fetch_array($rezultat);
         </div></div>
     </div>
 </div>
-<hr style="background-color:red">
+</div>
     
 
 

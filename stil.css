@@ -12,13 +12,9 @@
     text-align: center;
     min-height: 580px;
     position: relative;
-    
-
-
-
 }
 #text{
-    background-color: grey;
+    background-color: lightgrey;
     padding:50px;
     
 }
