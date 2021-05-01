@@ -86,29 +86,32 @@ $redak= mysqli_fetch_array($rezultat);
     
 </div>
 <div style="background: lightgrey !important;">
-<div id="autori">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-        <img style=" height: 200px; width: 180px;" src="Slike/1607337157923.jpg"><br>
-        <p class="ime"><i><b>Marina Jolić</b></i></p>
-        <p> Rođena 25.08.1999.       
-        </br>SSŠ Tomislavgrad,Ekonomski tehničar
-        </br>2018. FPMOZ,smjer Informatika</br>
-        <a href="mailto:marina.jolic@fpmoz.sum.ba">marina.jolic@fpmoz.sum.ba</a></p>
-        </div></div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-        <img style=" height: 200px; width: 180px;" src="Slike/20201207_111801.jpg" ><br>
-        <p class="ime"><i><b>Jelena Sjeran</b></i></p>
-        <p> Rođena 20.02.1999.       
-        </br>SSŠ Alekse Šantića Nevesinje,Gimnazija
-        </br>2018. FPMOZ,smjer Informatika</br>
-        <a href="mailto:jelena.sjeran@fpmoz.sum.ba">jelena.sjeran@fpmoz.sum.ba</a></p>
-        </div></div>
-    </div>
+<div class="authors">
+
+<div class="author-card">
+  <img src="Slike/slika1.jpg" alt="Jelena Sjeran" style="width:100%">
+  <div class="author-container">
+    <h3>Jelene Sjeran</h3>
+    <p class="author-title">Informatika</p>
+    <p>FPMOZ</p>
+    <p> Rođena 20.02.1999.       
+    </br>SSŠ Alekse Šantića Nevesinje,Gimnazija
+    </br>2018. FPMOZ,smjer Informatika</br>
+    <a href="mailto:jelena.sjeran@fpmoz.sum.ba">jelena.sjeran@fpmoz.sum.ba</a></p>
+  </div>
+</div>
+
+<div class="author-card">
+  <img src="Slike/slika2.jpg" alt="Marina Jolić" style="width:100%">
+  <div class="author-container">
+    <h3>Marina Jolić</h3>
+    <p class="author-title">Informatika</p>
+    <p>FPMOZ</p>
+    <p> Rođena 25.08.1999.       
+    </br>SSŠ Tomislavgrad,Ekonomski tehničar
+    </br>2018. FPMOZ,smjer Informatika</br>
+    <a href="mailto:marina.jolic@fpmoz.sum.ba">marina.jolic@fpmoz.sum.ba</a></p>
+  </div>
 </div>
 </div>
     

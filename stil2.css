@@ -56,6 +56,30 @@
         margin-left: 1.5em;
     }
 
+    /*O autorima*/
+    .authors{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-auto-rows: auto;
+        grid-gap: 1rem;
+        padding: 2.5em;
+    }
+    .author-card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+    
+    .author-container {
+        padding: 0 16px;
+    }
+    
+    .author-title {
+        color: grey;
+        font-size: 18px;
+    }
+
 /*Responsivness*/
 
 @media screen and (max-width: 600px) {
