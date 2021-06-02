@@ -36,6 +36,10 @@ class Session{
         }
     }
 
+    public function get_user_id(){
+        return $this->user_id;
+    }
+
 }
 
 $session = new Session();

@@ -1,5 +1,4 @@
 <?php
-require_once("kontroleri/db.php");
 
 class Auto{
     public $id;
@@ -42,6 +41,32 @@ class Auto{
         }
         
         return $records;
+    }
+
+    public function create(){
+        global $konekcija;
+
+        $sql = "INSERT INTO `auto` (`Godina proizvodnje`, `Serijski broj`, `Registracija`, `Vrsta motora`, `Oprema`, `Gorivo`, `Broj vrata`, `Broj sjedišta`, `Šifra_proizvođača`, `Model`)";
+        $sql .= "VALUES (" . $this->godina . ", ";
+        $sql .= "'" . $this->serijski_broj . "', ";
+        $sql .= "'" . $this->registracija . "', ";
+        $sql .= "'" . $this->vrsta_motora . "', ";
+        $sql .= "'" . $this->oprema . "', ";
+        $sql .= "'" . $this->gorivo . "', ";
+        $sql .= "'" . $this->broj_vrata . "', ";
+        $sql .= "'" . $this->broj_sjedista . "', ";
+        $sql .= "'" . $this->proizvodac . "', ";
+        $sql .= "'" . $this->model . "');";
+
+        return $konekcija->query($sql) == true ? true : false;
+    }
+
+    public static function delete($id){
+        global $konekcija;
+
+        $sql ="DELETE FROM `auto` WHERE Šifra=" . $id;
+
+        return $konekcija->query($sql) == true ? true: false;
     }
 }
 

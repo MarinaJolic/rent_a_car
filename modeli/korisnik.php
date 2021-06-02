@@ -7,6 +7,7 @@ class User{
     public $email;
     private $JMBG;
     private $password;
+    public $uloga;
 
     public static function verify_user($email, $password){
         global $konekcija;
@@ -26,6 +27,7 @@ class User{
             $obj->lastname = $row['Prezime'];
             $obj->email = $row['E-mail'];
             $obj->JMBG = $row['JMBG'];
+            $obj->uloga = $row['Uloga'];
         }
         
         return !empty($obj) ? $obj->user_id : false; 
@@ -55,6 +57,18 @@ class User{
         }else{
             return false;
         }
+    }
+
+    public static function check_user_role($user_id){
+        global $konekcija;
+
+        $sql = "SELECT * FROM korisnik WHERE `Šifra`=". $user_id;
+
+        $result = $konekcija->query($sql);
+        $result = $result->fetch_assoc();
+
+        return $result['Uloga'];
+
     }
 }
 

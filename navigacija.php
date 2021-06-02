@@ -10,12 +10,10 @@ require_once('kontroleri/sesija.php');
     
         if($session->is_signed_in()){
             echo "<a href='modeli.php'>Modeli</a>";
+            echo "<a href='rezervacije.php'>Rezervacije</a>";
         }
 
     ?>
-    <a href="#contact">Novosti</a>
-    <a href="#about">Servis</a>
-    <a href="#about">Kontakt</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
     </a>
