@@ -68,6 +68,14 @@ class Auto{
 
         return $konekcija->query($sql) == true ? true: false;
     }
+
+    public static function car_by_id($id){
+        global $konekcija;
+
+        $sql = "SELECT `Model` FROM `auto` WHERE Šifra=" . $id;
+
+        return $konekcija->query($sql)->fetch_assoc();
+    }
 }
 
 ?>

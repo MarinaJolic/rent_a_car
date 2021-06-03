@@ -5,6 +5,7 @@ require_once('header.php');
 require_once('modeli/proizvodac.php');
 require_once('modeli/auto.php');
 require_once('modeli/korisnik.php');
+require_once('modeli/rezervacija.php');
 require_once('kontroleri/sesija.php');
 
     
@@ -32,6 +33,12 @@ if(isset($_POST['submit'])){
 
 if(isset($_POST['delete'])){
     Auto::delete($_POST['delete']) == 1 ? $status = "uspjeh" : $status = "neuspjeh";
+}
+
+if(isset($_POST['create_reservation'])){
+    $current_user_id = $session->get_user_id();
+    $auto_id = $_POST['create_reservation'];
+    Rezervacija::create_reservation($current_user_id, $auto_id);
 }
 
 $user_role = User::check_user_role($session->get_user_id());
@@ -76,7 +83,7 @@ $user_role = User::check_user_role($session->get_user_id());
             <label for="exampleInputEmail1">Vrsta motora</label>
             <input type="text" class="form-control mb-3" name="vrsta_motora"  placeholder="Vrsta motora">
 
-            <label for="exampleInputEmail1">Oprema</label>
+            <label for="exampleInputEmail1">Oprema</label>e
             <input type="text" class="form-control mb-3" name="oprema"  placeholder="OPrema">
 
             <label for="exampleInputEmail1">Gorivo</label>
@@ -123,8 +130,7 @@ $user_role = User::check_user_role($session->get_user_id());
                             <p> Oprema: ' . $auto->oprema . '</p> 
                             <form action="modeli.php" method="POST">
                                 <button type="submit" name="delete" value=' . $auto->id . ' class="btn btn-danger mb-3">Izbriši</button>
-                                <button type="button" name="edit" value=' . $auto->id . ' class="btn btn-primary mb-3">Uredi</button>
-                                <button type="button" name="reserve" value=' . $auto->id . ' class="btn btn-success mb-3">Rezerviraj</button>
+                                <button type="submit" name="create_reservation" value=' . $auto->id . ' class="btn btn-success mb-3">Rezerviraj</button>
                             </form>
                             </div>
                         </div>     
@@ -141,7 +147,9 @@ $user_role = User::check_user_role($session->get_user_id());
                             <p> Godina: ' . $auto->godina . '</p> 
                             <p> Gorivo: ' . $auto->gorivo . '</p> 
                             <p> Oprema: ' . $auto->oprema . '</p> 
-                            <button type="button" class="btn btn-success mb-3">Rezerviraj</button>
+                            <form action="modeli.php" method="POST">
+                                <button type="submit" class="btn btn-success mb-3">Rezerviraj</button>
+                            </form>
                             </div>
                         </div>     
                     </div>

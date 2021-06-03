@@ -40,6 +40,16 @@ class Session{
         return $this->user_id;
     }
 
+    public function get_current_user(){
+        global $konekcija;
+
+        $sql = "SELECT * FROM korisnik WHERE id=" . $this->user_id . " LIMIT 1";
+        $result = $konekcija->query($sql);
+        if(!empty($result)){
+            return $result;
+        }
+    }
+
 }
 
 $session = new Session();
