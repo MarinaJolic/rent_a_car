@@ -31,7 +31,7 @@ class Rezervacija{
         global $konekcija;
 
         $sql = "INSERT INTO `rezervacija` (`Datum početka rezervacije`, `Datum završetka rezervacije`, `Šifra_auta`, `šifra_korisnika`)";
-        $sql .= "VALUES ('2021-06-01', '2021-06-01', " . $auto_id . ", " . $korisnik_id . ");";
+        $sql .= "VALUES ('". date("Y-m-d") ."', '" . date("Y-m-d", strtotime("+7 day")) . "', " . $auto_id . ", " . $korisnik_id . ");";
 
         echo $sql;
 

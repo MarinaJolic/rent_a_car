@@ -12,6 +12,7 @@ class Auto{
     public $broj_vrata;
     public $broj_sjedista;
     public $proizvodac;
+    public $slika;
 
     public static function index(){
         global $konekcija;
@@ -36,6 +37,7 @@ class Auto{
             $obj->broj_vrata = $row['Broj vrata'];
             $obj->broj_sjedista = $row['Broj sjedišta'];
             $obj->proizvodac = $row['Šifra_proizvođača'];
+            $obj->slika = $row['Slika'];
 
             array_push($records, $obj);
         }
@@ -46,7 +48,7 @@ class Auto{
     public function create(){
         global $konekcija;
 
-        $sql = "INSERT INTO `auto` (`Godina proizvodnje`, `Serijski broj`, `Registracija`, `Vrsta motora`, `Oprema`, `Gorivo`, `Broj vrata`, `Broj sjedišta`, `Šifra_proizvođača`, `Model`)";
+        $sql = "INSERT INTO `auto` (`Godina proizvodnje`, `Serijski broj`, `Registracija`, `Vrsta motora`, `Oprema`, `Gorivo`, `Broj vrata`, `Broj sjedišta`, `Šifra_proizvođača`, `Model`, `Slika`)";
         $sql .= "VALUES (" . $this->godina . ", ";
         $sql .= "'" . $this->serijski_broj . "', ";
         $sql .= "'" . $this->registracija . "', ";
@@ -56,7 +58,8 @@ class Auto{
         $sql .= "'" . $this->broj_vrata . "', ";
         $sql .= "'" . $this->broj_sjedista . "', ";
         $sql .= "'" . $this->proizvodac . "', ";
-        $sql .= "'" . $this->model . "');";
+        $sql .= "'" . $this->model . "', ";
+        $sql .= "'" . $this->slika . "');";
 
         return $konekcija->query($sql) == true ? true : false;
     }

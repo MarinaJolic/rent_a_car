@@ -28,6 +28,14 @@ if(isset($_POST['submit'])){
     $auto->proizvodac = $_POST['proizvodac'];
     $auto->model = $_POST['model'];
 
+    $target_file = 'Slike/' . basename($_FILES["file_upload"]["name"]);
+    if(move_uploaded_file($_FILES['file_upload']['tmp_name'], $target_file)){
+        $auto->slika = $_FILES['file_upload']['name'];
+    }else{
+        $auto->slika = 'default.jpg'; 
+    }
+    
+
     $auto->create() == true ? $status = "uspjeh" : $status = "neuspjeh";
 }
 
@@ -69,8 +77,11 @@ $user_role = User::check_user_role($session->get_user_id());
         }
     
     ?>
-    <form class="p-5" action="modeli.php" method="POST" <?php if($user_role == "Administrator"){ echo "style='display: block;'";}else{ echo "style='display: none;'"; }  ?>>
+    <form class="p-5" action="modeli.php" method="POST" enctype="multipart/form-data" <?php if($user_role == "Administrator"){ echo "style='display: block;'";}else{ echo "style='display: none;'"; }  ?>>
         <div class="form-group">
+            <label >Slika vozila</label> <br />
+            <input type="file"  name="file_upload"> <br /><br />
+
             <label for="exampleInputEmail1">Godina prozvodnje</label>
             <input type="text" class="form-control mb-3" name="godina_proizvodnje"  placeholder="Godina proizvodnje">
 
@@ -122,7 +133,7 @@ $user_role = User::check_user_role($session->get_user_id());
                 echo '
                     <div class="col-6 mb-5">
                     <div class="author-card">
-                        <img src="Slike/mini.jpg" alt="Jelena Sjeran" style="width:100%">
+                    <img src="Slike/' . $auto->slika . '" alt="Jelena Sjeran" style="width:100%">
                         <div class="author-container">
                             <h3>' . $auto->model . '</h3>
                             <p> Godina: ' . $auto->godina . '</p> 
@@ -141,7 +152,7 @@ $user_role = User::check_user_role($session->get_user_id());
                 echo '
                     <div class="col-6 mb-5">
                     <div class="author-card">
-                        <img src="Slike/mini.jpg" alt="Jelena Sjeran" style="width:100%">
+                        <img src="Slike/' . $auto->slika . '" alt="Jelena Sjeran" style="width:100%">
                         <div class="author-container">
                             <h3>' . $auto->model . '</h3>
                             <p> Godina: ' . $auto->godina . '</p> 
